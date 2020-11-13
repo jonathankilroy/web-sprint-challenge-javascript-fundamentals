@@ -22,11 +22,14 @@ myFunction();
 
 /* 🚀🚀🚀 Task 2: Counter 🚀🚀🚀 */
 /* Create a function called `summation` that accepts a parameter and uses a counter to return the summation of that number. For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(parameter) {
+  let sum = 0;
+  for (let i = 1; i <= parameter; i++){
+    sum += i;
   }
- 
+  return sum;
+}
+
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -50,6 +53,12 @@ const zooAnimals = [
   function animalNames(/*Your Code Here*/){
     /*Your Code Here*/
   }
+  const displayNames = [];
+ 
+  zooAnimals.forEach(function(animal){
+    displayNames.push(`name: ${animal["animal_name"]}, scientific: ${animal["scientific_name"]}`);
+  })
+  console.log(displayNames);
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -58,14 +67,23 @@ const zooAnimals = [
   function lowerCaseNames(/*Your Code Here*/){
     /*Your Code Here*/
   }
+  const lowCaseAnimalNames = zooAnimals.map(function(name){
+    return name.animal_name.toLowerCase();
+   })
+   console.log(lowCaseAnimalNames);
+
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
   */
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  // function lowPopulationAnimals(/*Your Code Here*/){
+  //   /*Your Code Here*/
+  // }
+  const lowPopulationAnimals = zooAnimals.filter(function(animal){
+    return animal.population < 5
+  })
+  console.log(lowPopulationAnimals);
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
